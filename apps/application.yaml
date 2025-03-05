@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: 'https://registry.xoto.cc'
-    targetRevision: HEAD
+    targetRevision: 0.0.1
     chart: xoto-demo
   destination:
     server: https://kubernetes.default.svc
