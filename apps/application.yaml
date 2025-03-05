@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://registry.xoto.cc'
+    repoURL: 'http://192.168.1.6:18080'
     targetRevision: 0.0.1
     chart: xoto-demo
   destination:
