@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: xoto-demo
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://registry.xoto.cc'
+    targetRevision: HEAD
+    chart: xoto-demo
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: xoto-demo
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
