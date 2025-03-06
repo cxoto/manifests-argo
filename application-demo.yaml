@@ -7,7 +7,7 @@ spec:
   generators:
     - git:
         repoURL: "https://github.com/cxoto/env-helm-demo.git"
-        revision: main
+        revision: master
         files:
           - path: "staging/xoto-demo/dependencies.yaml"
   template:
