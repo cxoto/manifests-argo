@@ -21,7 +21,7 @@ spec:
         chart: '{{name}}'
         helm:
           valueFiles:
-            - "https://raw.githubusercontent.com/cxoto/env-helm-demo/staging/xoto-demo/values/{{alias}}-values.yaml"
+            - "https://raw.githubusercontent.com/cxoto/env-helm-demo/master/staging/xoto-demo/values/{{alias}}-values.yaml"
       destination:
         server: https://kubernetes.default.svc
         namespace: xoto-demo
