@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: env-helm-applications
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        repoURL: "https://github.com/cxoto/env-helm-demo.git"
+        revision: main
+        files:
+          - path: "staging/xoto-demo/dependencies.yaml"
+  template:
+    metadata:
+      name: '{{name}}'
+    spec:
+      project: default
+      source:
+        repoURL: '{{repository}}'
+        targetRevision: '{{version}}'
+        chart: '{{name}}'
+        helm:
+          valueFiles:
+            - "https://raw.githubusercontent.com/cxoto/env-helm-demo/staging/xoto-demo/values/{{alias}}-values.yaml"
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: xoto-demo
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
